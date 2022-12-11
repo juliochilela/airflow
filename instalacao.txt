@@ -1,0 +1,20 @@
+sudo apt-get install software-properties-common
+sudo apt-add-repository universe
+sudo apt-get update
+sudo apt-get install python-setuptools
+sudo apt install python3-pip
+pip3 --version
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install libssl-dev
+sudo apt-get install libkrb5-dev
+export AIRFLOW_HOME=~/airflow
+pip3 install apache-airflow
+pip3 install typing_extensions
+# initialize the database
+airflow initdb
+
+# start the web server, default port is 8080
+airflow webserver -p 80 -D
+airflow scheduler -D
+
+airflow users  create --role Admin --username admin --email admin --firstname admin --lastname admin --password admin
